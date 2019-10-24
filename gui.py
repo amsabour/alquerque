@@ -51,7 +51,6 @@ class MapRenderer(Renderer):
 
 
 class PointRenderer(Renderer):
-
     def __init__(self, x, y, radius, color=Color.black):
         self.x = x
         self.y = y

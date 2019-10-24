@@ -15,7 +15,6 @@ class RandomPlayer(Player):
         possible_moves = game.get_possible_moves()
         if len(possible_moves) > 0:
             move = possible_moves[random.randint(0, len(possible_moves) - 1)]
-            move = possible_moves[0]
         else:
             move = None
         return move

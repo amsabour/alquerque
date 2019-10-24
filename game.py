@@ -7,8 +7,8 @@ import copy
 class Game:
     def __init__(self):
         self.map = OriginalMap(220, 140, 200, 200, 4, 4)
-        self.player1 = SmartPlayer(1)
-        self.player2 = SmartPlayer(2)
+        self.player1 = RandomPlayer(1)
+        self.player2 = RandomPlayer(2)
         self.t = 0
 
         self.player1_pieces = [i for i in range(12)]
@@ -44,7 +44,7 @@ class Game:
         return possible_moves
 
     def apply(self, move):
-        print(move)
+        # print(move)
         if move is not None:
             outcomes = self.map.apply_move(move)
 
@@ -68,6 +68,9 @@ class Game:
         else:
             return self.player2_pieces
 
+    def get_player_score(self, number):
+        return len(self.get_player_pieces(number)) + (12 - len(self.get_player_pieces(3 - number))) * 5
+
     def render(self, surface):
         self.map.render(surface)
 
@@ -76,4 +79,3 @@ class Game:
         copy.t = self.t
         copy.player1_pieces = self.player1_pieces.copy()
         copy.player2_pieces = self.player2_pieces.copy()
-

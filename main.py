@@ -20,13 +20,10 @@ game = Game()
 
 counter = 0
 
-
 start = time.time()
 while not done:
     counter += 1
-
-    clock.tick(1)
-
+    clock.tick(10)
     screen.fill(background_color)
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
@@ -35,8 +32,18 @@ while not done:
     if counter >= 5:
         game.tick()
 
-    if counter >= 205:
+    if counter >= 105:
         break
 
     game.render(screen)
     display.flip()
+
+player1_score = game.get_player_score(1)
+player2_score = game.get_player_score(2)
+
+if player1_score > player2_score:
+    print("Player 1 wins")
+elif player2_score > player1_score:
+    print("Player 2 wins")
+else:
+    print("It's a draw")
