@@ -16,7 +16,6 @@ class Renderer:
 
 
 class MapRenderer(Renderer):
-
     def __init__(self, x, y, width, height, map, color=Color.black, radius=2):
         self.x, self.y = x, y
         self.width, self.height = width, height

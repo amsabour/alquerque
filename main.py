@@ -25,7 +25,7 @@ start = time.time()
 while not done:
     counter += 1
 
-    clock.tick(60)
+    clock.tick(1)
 
     screen.fill(background_color)
     for event in pygame.event.get():
